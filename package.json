@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/vgsnv/MgmArticles/issues"
   },
-  "homepage": "https://github.com/vgsnv/MgmArticles#readme"
+  "homepage": "https://github.com/vgsnv/MgmArticles#readme",
+  "devDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^3.1.3",
+    "typescript": "^2.3.2"
+  }
 }
