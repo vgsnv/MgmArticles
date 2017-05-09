@@ -12,6 +12,8 @@ export class ControlPanel extends React.Component<Props, any>{
 
   render(){
 
+    console.log('ControlPanel props', this.props);
+
     const {
       onClickAdd,
       onClickDel
