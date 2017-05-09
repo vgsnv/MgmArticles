@@ -24,6 +24,6 @@ export default class Button extends React.Component<Props, State> {
     return(
       <button onClick = { onClick } className={ css.btn }>{ title }</button>
     );
-    
+
   };
 };

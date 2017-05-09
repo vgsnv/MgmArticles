@@ -3,18 +3,28 @@ import { connect } from 'react-redux';
 import * as css from './ControlPanel.styl';
 import Button from 'components/General/Button/Button';
 
-export class ControlPanel extends React.Component<any, any>{
+interface Props {
+  onClickAdd: () => void;
+  onClickDel: () => void;
+}
+
+export class ControlPanel extends React.Component<Props, any>{
 
   render(){
 
+    const {
+      onClickAdd,
+      onClickDel
+    } = this.props;
+
     const addBtn = {
       title: 'Добавить',
-      onClick: ()=>{console.log('Нажата кнопка добавить')}
+      onClick: onClickAdd
     };
 
     const delBtn = {
       title: 'Удалить',
-      onClick: ()=>{console.log('Нажата кнопка Удалить')}
+      onClick: onClickDel
     };
 
     return(<div className={css.controlPanel}>
