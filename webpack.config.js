@@ -48,10 +48,5 @@ module.exports = {
       containers: path.resolve(__dirname, 'src/containers/'),
     },
     extensions: [".ts", ".tsx", ".js", ".json"]
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000
   }
 }
