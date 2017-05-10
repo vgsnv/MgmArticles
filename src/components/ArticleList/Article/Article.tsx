@@ -1,17 +1,17 @@
 import * as React from 'react';
 import * as css from './Article.styl';
 
-interface Props{
-  id: string;
-  title: string;
-  value: number;
+import { Article as IArticle } from 'flow/model';
+
+interface Props extends IArticle{
+
 };
 
 interface State{
 
 };
 
-export class ArticleBox extends React.Component<Props, State> {
+export class Article extends React.Component<Props, State> {
 
   render(){
 

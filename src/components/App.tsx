@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ControlPanel} from 'components/ControlPanel/ControlPanel';
+import ControlPanelCont from 'components/ControlPanel/ControlPanelCont';
 import {SummaryPanel} from 'components/SummaryPanel/SummaryPanel';
 import {ArticleList} from 'components/ArticleList/ArticleList';
 
@@ -28,11 +28,11 @@ class App extends React.Component<{}, {}> {
       onClickValue: () => {console.log('Order by Value')},
     }
 
-    return(<div>
-      <ControlPanel {...controlPanel}/>
+    return(<main>
+      <ControlPanelCont/>
       <SummaryPanel {...summary}/>
       <ArticleList {...articlesList}/>
-    </div>);
+    </main>);
   }
 
 }

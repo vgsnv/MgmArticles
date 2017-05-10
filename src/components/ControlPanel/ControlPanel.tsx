@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import * as css from './ControlPanel.styl';
 import Button from 'components/General/Button/Button';
 
-interface Props {
+export interface Props {
+
+}
+
+export interface Dispatch {
   onClickAdd: () => void;
   onClickDel: () => void;
 }
 
-export class ControlPanel extends React.Component<Props, any>{
+export class ControlPanel extends React.Component<Props & Dispatch, any>{
 
   render(){
 

@@ -1,19 +1,14 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
 
-import { ArticleBox} from './Article/Article';
-import { ArticleListHeader } from './ArticleListHeader/ArticleListHeader'
-
-interface Article{
-  id: string;
-  title: string;
-  value: number;
-}
+import { Article } from './Article/Article';
+import { ArticleListHeader } from './ArticleListHeader/ArticleListHeader';
+import { State } from 'flow/model';
  
 interface Props{
-  articles: Array<Article>,
-  onClickTitle: () => void,
-  onClickValue: () => void,
+  articles: State.articles;
+  onClickTitle: () => void;
+  onClickValue: () => void;
 };
 
 interface State{
@@ -31,7 +26,7 @@ export class ArticleList extends React.Component<Props, State> {
     console.log('getArticles', articles);
 
     return articles.map(article => {
-      return(<ArticleBox key={article.id} {...article}/>);
+      return(<Article key={article.id} {...article}/>);
     })
     
   };

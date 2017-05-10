@@ -41,11 +41,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      actions: path.resolve(__dirname, 'src/actions/'),
-      reducers: path.resolve(__dirname, 'src/reducers/'),
-      models: path.resolve(__dirname, 'src/models/'),
       components: path.resolve(__dirname, 'src/components/'),
-      containers: path.resolve(__dirname, 'src/containers/'),
+      flow: path.resolve(__dirname, 'src/flow/'),
     },
     extensions: [".ts", ".tsx", ".js", ".json"]
   }
