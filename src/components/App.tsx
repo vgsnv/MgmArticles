@@ -20,12 +20,18 @@ class App extends React.Component<{}, {}> {
       id: '19df4', title: 'Макароны', value: 130
     }, {
       id: '19df3', title: 'Сосиски', value: 240
-    }]
+    }];
+
+    const articlesList = {
+      articles: articles,
+      onClickTitle: () => {console.log('Order by Title')},
+      onClickValue: () => {console.log('Order by Value')},
+    }
 
     return(<div>
       <ControlPanel {...controlPanel}/>
       <SummaryPanel {...summary}/>
-      <ArticleList articles = {articles}/>
+      <ArticleList {...articlesList}/>
     </div>);
   }
 

@@ -22,10 +22,9 @@ export class ArticleBox extends React.Component<Props, State> {
       value
     } = this.props
 
-    return(<div id={css.article}>
-      <p id={css.artilceTitle}>{title}</p>
-      <p id={css.artilceValue}>{value}</p>
-    </div>);
+    return(<tr className={css.article}>
+      <td className={css.artilceTitle} >{title}</td><td className={css.artilceValue}>{value}</td>
+    </tr>);
 
   };
 };

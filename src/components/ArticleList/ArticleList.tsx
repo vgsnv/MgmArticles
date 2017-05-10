@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as css from './ArticleList.styl';
 
 import { ArticleBox} from './Article/Article';
+import { ArticleListHeader } from './ArticleListHeader/ArticleListHeader'
 
 interface Article{
   id: string;
@@ -10,7 +11,9 @@ interface Article{
 }
  
 interface Props{
-  articles: Array<Article>
+  articles: Array<Article>,
+  onClickTitle: () => void,
+  onClickValue: () => void,
 };
 
 interface State{
@@ -37,9 +40,19 @@ export class ArticleList extends React.Component<Props, State> {
 
     console.log('ArticleList props', this.props);
 
-    return(<div id={css.articleList}>
-      {this.getArticles()}
-    </div>);
+    const getArticles = this.getArticles();
+
+    const {
+      onClickTitle,
+      onClickValue
+    } = this.props
+
+    return(<table id={css.articleList}>
+      <ArticleListHeader
+        onClickHeadTitle = {onClickTitle}
+        onClickHeadValue = {onClickValue}/>
+      <tbody>{getArticles}</tbody>
+    </table>);
 
   };
 };
