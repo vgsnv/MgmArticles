@@ -17,6 +17,7 @@ type MapDispatchToProps = Dispatch;
 const mapDispatchToProps = (dispatch): MapDispatchToProps =>({
   onClickTitle: () => {console.log('Order by Title')},
   onClickValue: () => {console.log('Order by Value')},
+  onSelectClick: (id) => {console.log('dispatch select '+ id)},
 })
 
 const ArticleListCont = connect<MapStateToProps, MapDispatchToProps, {} >(mapStateToProps, mapDispatchToProps)(ArticleList);

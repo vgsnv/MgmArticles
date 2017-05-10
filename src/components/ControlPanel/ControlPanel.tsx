@@ -29,7 +29,7 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
     };
 
     const delBtn = {
-      title: 'Удалить',
+      title: 'Изменить',
       onClick: onClickDel
     };
 

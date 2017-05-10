@@ -30,9 +30,9 @@ export class ArticleListHeader extends React.Component<Props & Dispatch, State> 
     return(<thead id={css.articleListHeader}>
       <tr>
         { articlesMode === 'DELETING' &&
-        <th>Select</th> }
-        <th onClick={onClickHeadTitle} >Title</th>
-        <th onClick={onClickHeadValue} >Value</th></tr>
+        <th>Выбрать</th> }
+        <th onClick={onClickHeadTitle} >Заголовок</th>
+        <th onClick={onClickHeadValue} >Значение</th></tr>
     </thead>);
 
   };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
 
-import { Article } from './Article/Article';
+import { Article, Props as ArticleProps, Dispatch as ArticleDispatch } from './Article/Article';
 import { ArticleListHeader } from './ArticleListHeader/ArticleListHeader';
 import { State } from 'flow/model';
  
@@ -13,6 +13,7 @@ export interface Props{
 export interface Dispatch{
   onClickTitle: () => void;
   onClickValue: () => void;
+  onSelectClick: (id: string) => void;
 };
 
 interface State{
@@ -25,13 +26,25 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
     const {
       articles,
-      articlesMode
+      articlesMode,
+      onSelectClick
     } = this.props;
 
     console.log('getArticles', articles);
 
     return articles.map(article => {
-      return(<Article key={article.id} articlesMode = { articlesMode } {...article}/>);
+
+      const ItemArticle: ArticleProps & ArticleDispatch = {
+        articlesMode: articlesMode,
+        onSelectClick: onSelectClick,
+        id: article.id,
+        title: article.title,
+        value: article.value
+      }
+
+      return(<Article
+              key={article.id}
+              {...ItemArticle}/>);
     })
     
   };
