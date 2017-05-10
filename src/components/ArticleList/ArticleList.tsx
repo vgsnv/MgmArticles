@@ -5,8 +5,12 @@ import { Article } from './Article/Article';
 import { ArticleListHeader } from './ArticleListHeader/ArticleListHeader';
 import { State } from 'flow/model';
  
-interface Props{
+export interface Props{
   articles: State.articles;
+  articlesMode: string;
+};
+
+export interface Dispatch{
   onClickTitle: () => void;
   onClickValue: () => void;
 };
@@ -15,18 +19,19 @@ interface State{
 
 };
 
-export class ArticleList extends React.Component<Props, State> {
+export class ArticleList extends React.Component<Props & Dispatch, State> {
 
   private getArticles(){
 
     const {
-      articles
+      articles,
+      articlesMode
     } = this.props;
 
     console.log('getArticles', articles);
 
     return articles.map(article => {
-      return(<Article key={article.id} {...article}/>);
+      return(<Article key={article.id} articlesMode = { articlesMode } {...article}/>);
     })
     
   };
@@ -38,12 +43,14 @@ export class ArticleList extends React.Component<Props, State> {
     const getArticles = this.getArticles();
 
     const {
+      articlesMode,
       onClickTitle,
       onClickValue
     } = this.props
 
     return(<table id={css.articleList}>
       <ArticleListHeader
+        articlesMode = {articlesMode}
         onClickHeadTitle = {onClickTitle}
         onClickHeadValue = {onClickValue}/>
       <tbody>{getArticles}</tbody>

@@ -4,9 +4,9 @@ export interface Article {
   readonly value: number;
 };
 
-export type ArticlesEditingMode = 'NORMAL' | 'ADDING' |'DELETING';
+export type ArticlesMode = 'NORMAL' | 'ADDING' |'DELETING';
 
 export namespace State {
   export type articles = ReadonlyArray<Article>;
-  export type articlesEditingMode = ArticlesEditingMode;
+  export type articlesMode = ArticlesMode;
 }

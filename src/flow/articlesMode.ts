@@ -1,4 +1,4 @@
-import { State, ArticlesEditingMode } from './model';
+import { State } from './model';
 
 //ACTIONS
 const ARTICLIE_MODE_NORMAL = 'ARTICLIE_MODE_NORMAL';
@@ -20,7 +20,7 @@ export const articleModeDeleting = () =>({
 
 //REDUCERS
 
-export const articlesEditingMode = (state: State.articlesEditingMode = 'NORMAL', action) => {
+export const articlesMode = (state: State.articlesMode = 'NORMAL', action) => {
 
   switch(action.type){
     case ARTICLIE_MODE_NORMAL:

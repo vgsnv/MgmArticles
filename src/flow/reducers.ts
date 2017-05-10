@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { articles } from './articles';
-import { articlesEditingMode } from './articlesEditingMode';
+import { articlesMode } from './articlesMode';
 
 const reducers = combineReducers({
   articles,
-  articlesEditingMode,
+  articlesMode,
 })
 
 export default reducers;

@@ -16,7 +16,15 @@ const articleDel = (id: string) => ({
 
 //REDUCERS
 
-export const articles = (state: State.articles = [], action) => {
+const InitialArticles = [{
+  id: '19df4', title: 'Макароны', value: 130
+}, {
+  id: '19df3', title: 'Сосиски', value: 240
+}, {
+  id: '19df5', title: 'Доширак', value: 20
+}];
+
+export const articles = (state: State.articles = InitialArticles, action) => {
 
   switch(action.type){
     case ARTICLE_ADD:

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ControlPanel, Props, Dispatch } from './ControlPanel';
 
-import { articleModeAdding, articleModeDeleting } from 'flow/articlesEditingMode';
+import { articleModeAdding, articleModeDeleting } from 'flow/articlesMode';
 
 type MapStateToProps = Props;
 
