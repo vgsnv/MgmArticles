@@ -4,12 +4,13 @@ import * as css from './ControlPanel.styl';
 import Button from 'components/General/Button/Button';
 
 export interface Props {
-
+  articlesMode: string;
 }
 
 export interface Dispatch {
   onClickAdd: () => void;
-  onClickDel: () => void;
+  onClickChange: () => void;
+  onClickCancel: () => void;
 }
 
 export class ControlPanel extends React.Component<Props & Dispatch, any>{
@@ -20,7 +21,9 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
 
     const {
       onClickAdd,
-      onClickDel
+      onClickChange,
+      onClickCancel,
+      articlesMode,
     } = this.props;
 
     const addBtn = {
@@ -28,14 +31,20 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
       onClick: onClickAdd
     };
 
-    const delBtn = {
+    const cngBtn = {
       title: 'Изменить',
-      onClick: onClickDel
+      onClick: onClickChange
+    };
+
+    const cclBtn = {
+      title: 'Отменить',
+      onClick: onClickCancel
     };
 
     return(<div className={css.controlPanel}>
       <Button {...addBtn}/>
-      <Button {...delBtn}/>
+      {articlesMode !== 'CHANGING' && <Button {...cngBtn}/>}
+      {articlesMode === 'CHANGING' && <Button {...cclBtn}/>}
     </div>);
   }
 };

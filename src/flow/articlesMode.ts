@@ -3,7 +3,8 @@ import { State } from './model';
 //ACTIONS
 const ARTICLIE_MODE_NORMAL = 'ARTICLIE_MODE_NORMAL';
 const ARTICLIE_MODE_ADDING = 'ARTICLIE_MODE_ADDING';
-const ARTICLIE_MODE_DELETING = 'ARTICLIE_MODE_DELETING';
+const ARTICLIE_MODE_CHANGING = 'ARTICLIE_MODE_CHANGING';
+const ARTICLIE_MODE_CANCELING = 'ARTICLIE_MODE_CANCELING';
 
 export const articleModeNormal = () => ({
   type: ARTICLIE_MODE_NORMAL,
@@ -13,9 +14,14 @@ export const articleModeAdding = () => ({
   type: ARTICLIE_MODE_ADDING,
 });
 
-export const articleModeDeleting = () =>({
-  type: ARTICLIE_MODE_DELETING,
+export const articleModeChanging = () =>({
+  type: ARTICLIE_MODE_CHANGING,
 })
+
+export const articleModeCanceling = () =>({
+  type: ARTICLIE_MODE_CANCELING,
+})
+
 
 
 //REDUCERS
@@ -27,8 +33,10 @@ export const articlesMode = (state: State.articlesMode = 'NORMAL', action) => {
       return 'NORMAL'
     case ARTICLIE_MODE_ADDING:
       return 'ADDING';
-    case ARTICLIE_MODE_DELETING:
-      return 'DELETING';
+    case ARTICLIE_MODE_CHANGING:
+      return 'CHANGING';
+    case ARTICLIE_MODE_CANCELING:
+      return 'NORMAL';
     default:
       return state;
   }

@@ -40,7 +40,7 @@ export class Article extends React.Component<Props & Dispatch, State> {
     } = this.props
 
     return(<tr className={css.article}>
-      { articlesMode === 'DELETING' &&
+      { articlesMode === 'CHANGING' &&
       <td className={css.articleSelect}><input onClick={this.onInputClick} type="checkbox" /> </td> }
       <td className={css.artilceTitle} >{title}</td>
       <td className={css.artilceValue}>{value}</td>
