@@ -41,10 +41,16 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
       onClick: onClickCancel
     };
 
+    const delBtn = {
+      title: 'Удалить',
+      onClick: onClickCancel
+    };
+
     return(<div className={css.controlPanel}>
       <Button {...addBtn}/>
       {articlesMode !== 'CHANGING' && <Button {...cngBtn}/>}
       {articlesMode === 'CHANGING' && <Button {...cclBtn}/>}
+      {articlesMode === 'CHANGING' && <Button {...delBtn}/>}
     </div>);
   }
 };
