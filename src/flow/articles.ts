@@ -1,4 +1,9 @@
-import { State, Article } from './model';
+export interface Article {
+  readonly id: string;
+  readonly title: string;
+  readonly value: number;
+  readonly isDeleted: boolean;
+};
 
 //ACTIONS
 const ARTICLE_ADD = 'ARTICLE_ADD';
@@ -16,21 +21,19 @@ const articleDel = (id: string) => ({
 
 //REDUCERS
 
-const InitialArticles = [{
-  id: '19df4', title: 'Макароны', value: 130
-}, {
-  id: '19df3', title: 'Сосиски', value: 240
-}, {
-  id: '19df5', title: 'Доширак', value: 20
-}];
+const initialArticles = {
+  '19df4': { id: '19df4', title: 'Макароны', value: 130, isDeleted: false },
+  '19df3': { id: '19df3', title: 'Сосиски', value: 240, isDeleted: false },
+  '19df5': { id: '19df5', title: 'Доширак', value: 20, isDeleted: false },
+};
 
-export const articles = (state: State.articles = InitialArticles, action) => {
+export const articles = (state = initialArticles, action) => {
 
   switch(action.type){
     case ARTICLE_ADD:
-      return [...state, action.data];
+      return {...state, [action.id]: action.data};
     case ARTICLE_DEL:
-      return [...state.filter(item => item.id !== action.data)];
+      return {...state, [action.id]: {...action.data, isDeleted: true}};
     default: 
       return state;
   }

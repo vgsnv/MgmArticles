@@ -51,32 +51,32 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
     console.log('getArticles', articles);
 
-    return articles.map(article => {
+    return Object.keys(articles).map(key => {
 
       const ItemArticle: ArticleProps & ArticleDispatch = {
         articlesMode: articlesMode,
         onSelectClick: onSelectClick,
-        id: article.id,
-        title: article.title,
-        value: article.value
+        id: articles[key].id,
+        title: articles[key].title,
+        value: articles[key].value
       }
 
        const onInputClick = (e) =>{
 
         e.preventDefault();
 
-        onSelectClick(article.id);
+        onSelectClick(articles[key].id);
 
       }
 
-      return(<tr key={article.id} className={css.article}>
+      return(<tr key={articles[key].id} className={css.article}>
         { articlesMode === 'CHANGING' &&
         <td className={css.articleSelect}><input onClick={onInputClick} type="checkbox" /> </td> }
-        <td className={css.artilceTitle} >{article.title}</td>
-        <td className={css.artilceValue}>{article.value}</td>
+        <td className={css.artilceTitle} >{articles[key].title}</td>
+        <td className={css.artilceValue}>{articles[key].value}</td>
       </tr>);
 
-    })
+    });
     
   };
 

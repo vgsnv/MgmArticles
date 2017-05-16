@@ -10,7 +10,7 @@ type MapStateToProps = Props;
 const mapStateToProps = ({articles, articlesMode}): MapStateToProps => ({
   articles,
   articlesMode,
-})
+});
 
 type MapDispatchToProps = Dispatch;
 
