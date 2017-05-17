@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
 
-import { Article, Props as ArticleProps, Dispatch as ArticleDispatch } from './Article/Article';
 import { State } from 'flow/model';
  
 export interface Props{
@@ -53,7 +52,7 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
     return Object.keys(articles).map(key => {
 
-      const ItemArticle: ArticleProps & ArticleDispatch = {
+      const ItemArticle = {
         articlesMode: articlesMode,
         onSelectClick: onSelectClick,
         id: articles[key].id,
