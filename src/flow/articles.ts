@@ -21,13 +21,17 @@ const articleDel = (id: string) => ({
 
 //REDUCERS
 
-const initialArticles = {
+interface Articles {
+  [key: string]: Article
+}
+
+const initialArticles: Articles = {
   '19df4': { id: '19df4', title: 'Макароны', value: 130, isDeleted: false },
   '19df3': { id: '19df3', title: 'Сосиски', value: 240, isDeleted: false },
   '19df5': { id: '19df5', title: 'Доширак', value: 20, isDeleted: false },
 };
 
-export const articles = (state = initialArticles, action) => {
+export const articles = (state: Articles = initialArticles, action) => {
 
   switch(action.type){
     case ARTICLE_ADD:
