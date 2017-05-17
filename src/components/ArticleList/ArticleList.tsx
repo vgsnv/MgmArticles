@@ -52,14 +52,6 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
     return Object.keys(articles).map(key => {
 
-      const ItemArticle = {
-        articlesMode: articlesMode,
-        onSelectClick: onSelectClick,
-        id: articles[key].id,
-        title: articles[key].title,
-        value: articles[key].value
-      }
-
        const onInputClick = (e) =>{
 
         e.preventDefault();
