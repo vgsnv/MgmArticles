@@ -21,7 +21,7 @@ const articleDel = (id: string) => ({
 
 //REDUCERS
 
-interface Articles {
+export interface Articles {
   [key: string]: Article
 }
 

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
+import { Articles } from 'flow/articles';
 
-import { State } from 'flow/model';
- 
 export interface Props{
-  articles: State.articles;
+  articles: Articles;
   articlesMode: string;
 };
 

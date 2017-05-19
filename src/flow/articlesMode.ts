@@ -1,5 +1,3 @@
-import { State } from './model';
-
 //ACTIONS
 const ARTICLIE_MODE_NORMAL = 'ARTICLIE_MODE_NORMAL';
 const ARTICLIE_MODE_ADDING = 'ARTICLIE_MODE_ADDING';
@@ -22,11 +20,9 @@ export const articleModeCanceling = () =>({
   type: ARTICLIE_MODE_CANCELING,
 })
 
-
-
 //REDUCERS
 
-export const articlesMode = (state: State.articlesMode = 'NORMAL', action) => {
+export const articlesMode = (state: string = 'NORMAL', action) => {
 
   switch(action.type){
     case ARTICLIE_MODE_NORMAL:

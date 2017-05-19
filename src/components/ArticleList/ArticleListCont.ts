@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import { ArticleList, Props, Dispatch } from './ArticleList';
 
-import { State } from 'flow/model';
-
 type MapStateToProps = Props;
 
 const mapStateToProps = ({articles, articlesMode}): MapStateToProps => ({
