@@ -5,9 +5,9 @@ import { ArticleList, Props, Dispatch } from './ArticleList';
 
 type MapStateToProps = Props;
 
-const mapStateToProps = ({articles, articlesMode}): MapStateToProps => ({
-  articles,
-  articlesMode,
+const mapStateToProps = ({entities, articlesMode}): MapStateToProps => ({
+  articles: entities.articles,
+  articlesMode: entities.articlesMode,
 });
 
 type MapDispatchToProps = Dispatch;

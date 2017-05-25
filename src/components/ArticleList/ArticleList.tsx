@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
-import { Articles } from 'flow/articles';
+import { Articles } from 'reducers/entities/articles';
 
 export interface Props{
   articles: Articles;
@@ -31,8 +31,7 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
       return(<thead id={css.articleListHeader}>
         <tr>
-          { articlesMode === 'DELETING' &&
-          <th>Выбрать</th> }
+          { articlesMode === 'DELETING' && <th>Выбрать</th> }
           <th onClick={onClickTitle} >Заголовок</th>
           <th onClick={onClickValue} >Значение</th></tr>
       </thead>);
@@ -60,8 +59,7 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
       }
 
       return(<tr key={articles[key].id} className={css.article}>
-        { articlesMode === 'CHANGING' &&
-        <td className={css.articleSelect}><input onClick={onInputClick} type="checkbox" /> </td> }
+        { articlesMode === 'CHANGING' && <td className={css.articleSelect}><input onClick={onInputClick} type="checkbox" /> </td> }
         <td className={css.artilceTitle} >{articles[key].title}</td>
         <td className={css.artilceValue}>{articles[key].value}</td>
       </tr>);

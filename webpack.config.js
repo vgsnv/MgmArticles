@@ -42,7 +42,7 @@ module.exports = {
   resolve: {
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
-      flow: path.resolve(__dirname, 'src/flow/'),
+      reducers: path.resolve(__dirname, 'src/reducers/'),
     },
     extensions: [".ts", ".tsx", ".js", ".json"]
   }
