@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import { articlesSelect, articlesAdd } from 'reducers/entities/articles'
+import { articlesAdd } from 'reducers/entities/articles'
 
 import reducers from 'reducers';
 

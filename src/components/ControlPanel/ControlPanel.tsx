@@ -11,6 +11,7 @@ export interface Dispatch {
   onClickAdd: () => void;
   onClickChange: () => void;
   onClickCancel: () => void;
+  onClickDelete: () => void;
 }
 
 export class ControlPanel extends React.Component<Props & Dispatch, any>{
@@ -23,6 +24,7 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
       onClickAdd,
       onClickChange,
       onClickCancel,
+      onClickDelete,
       articlesMode,
     } = this.props;
 
@@ -42,8 +44,8 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
     };
 
     const delBtn = {
-      title: 'Удалить',
-      onClick: onClickCancel
+      title: 'Готово',
+      onClick: onClickDelete
     };
 
     return(<div className={css.controlPanel}>

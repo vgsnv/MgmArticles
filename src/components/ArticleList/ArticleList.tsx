@@ -10,7 +10,7 @@ export interface Props{
 export interface Dispatch{
   onClickTitle: () => void;
   onClickValue: () => void;
-  onSelectClick: (id: string) => void;
+  articleDelete: (key: string) => void;
 };
 
 interface State{
@@ -31,7 +31,7 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
       return(<thead id={css.articleListHeader}>
         <tr>
-          { articlesMode === 'DELETING' && <th>Выбрать</th> }
+          { articlesMode === 'CHANGING' && <th>Выбрать</th> }
           <th onClick={onClickTitle} >Заголовок</th>
           <th onClick={onClickValue} >Значение</th></tr>
       </thead>);
@@ -43,26 +43,28 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
     const {
       articles,
       articlesMode,
-      onSelectClick
+      articleDelete,
     } = this.props;
 
-    console.log('getArticles', articles);
+    console.log('render getArticles', articles);
 
     return Object.keys(articles).map(key => {
 
-       const onInputClick = (e) =>{
-
-        e.preventDefault();
-
-        onSelectClick(articles[key].id);
-
+      const articleClickDelete = () =>{
+        articleDelete(key);
       }
 
-      return(<tr key={articles[key].id} className={css.article}>
-        { articlesMode === 'CHANGING' && <td className={css.articleSelect}><input onClick={onInputClick} type="checkbox" /> </td> }
-        <td className={css.artilceTitle} >{articles[key].title}</td>
-        <td className={css.artilceValue}>{articles[key].value}</td>
-      </tr>);
+      if(articles[key].isDeleted) return;
+
+      return(
+        <tr key={key} className={css.article}>
+          {articlesMode === 'CHANGING' && 
+            <td className={css.articleDelete}>
+              <div className={css.delLabel} onClick={articleClickDelete}></div>
+            </td>}
+          <td className={css.artilceTitle} >{articles[key].title} {articles[key].isDeleted}</td>
+          <td className={css.artilceValue}>{articles[key].value}</td>
+        </tr>);
 
     });
     
@@ -70,10 +72,10 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
   render(){
 
-    console.log('ArticleList props', this.props);
-
-    const getArticles = this.getArticles();
+    console.log('render ArticleList', this.props);
+    
     const getArticleListHeader = this.getArticleListHeader();
+    const getArticles = this.getArticles();
     
     return(<table id={css.articleList}>
             { getArticleListHeader }

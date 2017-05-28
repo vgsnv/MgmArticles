@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ControlPanel, Props, Dispatch } from './ControlPanel';
 
-import { articleModeAdding, articleModeChanging, articleModeCanceling } from 'reducers/entities/articlesMode';
+import { articleModeAdding, articleModeChanging, articleModeCanceling, articleModeDelete } from 'reducers/entities/articlesMode';
 
 type MapStateToProps = Props;
 
@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch): MapDispatchToProps =>({
   onClickAdd: () => dispatch(articleModeAdding()),
   onClickChange: () => dispatch(articleModeChanging()),
   onClickCancel: () => dispatch(articleModeCanceling()),
+  onClickDelete: () => dispatch(articleModeDelete()),
 })
 
 const ControlPanelCont = connect<MapStateToProps, MapDispatchToProps, {} >(mapStateToProps, mapDispatchToProps)(ControlPanel);

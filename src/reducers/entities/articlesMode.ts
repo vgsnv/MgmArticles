@@ -3,6 +3,7 @@ const ARTICLIE_MODE_NORMAL = 'ARTICLIE_MODE_NORMAL';
 const ARTICLIE_MODE_ADDING = 'ARTICLIE_MODE_ADDING';
 const ARTICLIE_MODE_CHANGING = 'ARTICLIE_MODE_CHANGING';
 const ARTICLIE_MODE_CANCELING = 'ARTICLIE_MODE_CANCELING';
+const ARTICLIE_MODE_DELETE = 'ARTICLIE_MODE_DELETE';
 
 export const articleModeNormal = () => ({
   type: ARTICLIE_MODE_NORMAL,
@@ -20,6 +21,10 @@ export const articleModeCanceling = () =>({
   type: ARTICLIE_MODE_CANCELING,
 })
 
+export const articleModeDelete = () =>({
+  type: ARTICLIE_MODE_DELETE,
+})
+
 //REDUCERS
 
 export const articlesMode = (state: string = 'NORMAL', action) => {
@@ -33,6 +38,8 @@ export const articlesMode = (state: string = 'NORMAL', action) => {
       return 'CHANGING';
     case ARTICLIE_MODE_CANCELING:
       return 'NORMAL';
+    case ARTICLIE_MODE_DELETE:
+      return 'NORMAL'
     default:
       return state;
   }
