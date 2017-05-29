@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as css from './ArticleList.styl';
 import { Articles } from 'reducers/entities/articles';
+import SelectItem from 'components/General/SelectItem/SelectItem';
 
 export interface Props{
   articles: Articles;
@@ -10,7 +11,7 @@ export interface Props{
 export interface Dispatch{
   onClickTitle: () => void;
   onClickValue: () => void;
-  articleDelete: (key: string) => void;
+  articlesSelect: (key: string) => void;
 };
 
 interface State{
@@ -43,26 +44,26 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
     const {
       articles,
       articlesMode,
-      articleDelete,
+      articlesSelect,
     } = this.props;
 
     console.log('render getArticles', articles);
 
     return Object.keys(articles).map(key => {
 
-      const articleClickDelete = () =>{
-        articleDelete(key);
+      const selectItemClick = () =>{
+        console.log('click')
+        articlesSelect(key);
       }
-
-      if(articles[key].isDeleted) return;
 
       return(
         <tr key={key} className={css.article}>
           {articlesMode === 'CHANGING' && 
             <td className={css.articleDelete}>
-              <div className={css.delLabel} onClick={articleClickDelete}></div>
+
+              <SelectItem  selectStatus = {articles[key].isSelect} onClick = { selectItemClick }/>
             </td>}
-          <td className={css.artilceTitle} >{articles[key].title} {articles[key].isDeleted}</td>
+          <td className={css.artilceTitle} >{articles[key].title} {articles[key].isSelect}</td>
           <td className={css.artilceValue}>{articles[key].value}</td>
         </tr>);
 
