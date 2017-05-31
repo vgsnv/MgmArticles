@@ -19,7 +19,7 @@ export const articlesSelect = (id: string) => ({
 });
 
 
-const DefaultArticle = {
+const DefaultArticle: Article = {
   id: '00001',
   title: 'newArticle',
   value: 900,

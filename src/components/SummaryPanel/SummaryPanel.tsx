@@ -12,9 +12,7 @@ interface State{
 export class SummaryPanel extends React.Component<Props, State> {
 
   render(){
-
-    console.log('summaryPanel props', this.props);
-
+    
     const {
       summary,
     } = this.props;

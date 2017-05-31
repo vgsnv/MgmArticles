@@ -14,8 +14,6 @@ export default class SelectItem extends React.Component<Props, State> {
 
   render(){
 
-    console.log('render SelectItem', this.props);
-
     const {
       selectStatus,
       onClick

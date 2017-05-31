@@ -13,9 +13,7 @@ interface State{
 export default class Button extends React.Component<Props, State> {
 
   render(){
-
-    console.log('btn props', this.props);
-
+    
     const {
       title,
       onClick

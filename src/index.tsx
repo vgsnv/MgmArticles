@@ -2,19 +2,23 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import { articlesAdd } from 'reducers/entities/articles'
+
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger'
 
 import reducers from 'reducers';
 
 import App from "./components/App";
 
-const store = createStore(reducers);
+const loggerMiddleware = createLogger()
 
-store.subscribe(( ) => {
-  console.log(store.getState());
-});
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk, loggerMiddleware),
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,7 +27,18 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// store.dispatch(articlesSelect('19df3'));
+const DefaultArticle = {
+  id: '00001',
+  title: 'newArticle',
+  value: 900,
+  isSelect: false
+}
 
-// store.dispatch(articlesSelect('19df5'));
-// store.dispatch(articlesAdd({ id: '19df6', title: 'Доширак', value: 20, isSelected: false, isDeleted: false },));
+function fetchSecretSauce() {
+  return fetch('https://www.google.com/search?q=secret+sauce');
+}
+
+function toto(){
+
+}
+store.dispatch(articlesAdd(DefaultArticle))

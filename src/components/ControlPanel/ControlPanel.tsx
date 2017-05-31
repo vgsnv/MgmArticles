@@ -18,8 +18,6 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
 
   render(){
 
-    console.log('render ControlPanel', this.props);
-
     const {
       onClickAdd,
       onClickChange,
@@ -44,7 +42,7 @@ export class ControlPanel extends React.Component<Props & Dispatch, any>{
     };
 
     const delBtn = {
-      title: 'Готово',
+      title: 'Удалить',
       onClick: onClickDelete
     };
 

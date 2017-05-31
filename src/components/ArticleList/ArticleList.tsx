@@ -22,8 +22,6 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
 
   private getArticleListHeader(){
 
-      console.log('ArticleListHeader props', this.props);
-
       const {
         articlesMode,
         onClickTitle,
@@ -46,8 +44,6 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
       articlesMode,
       articlesSelect,
     } = this.props;
-
-    console.log('render getArticles', articles);
 
     return Object.keys(articles).map(key => {
 
@@ -72,8 +68,6 @@ export class ArticleList extends React.Component<Props & Dispatch, State> {
   };
 
   render(){
-
-    console.log('render ArticleList', this.props);
     
     const getArticleListHeader = this.getArticleListHeader();
     const getArticles = this.getArticles();
